@@ -30,7 +30,7 @@ export default new GraphQLScalarType({
     name: 'Int53',
     description:
         'The `Int53` scalar type represents non-fractional signed whole numeric ' +
-        'values. Int53 can represent values between -(2^53) - 1 and 2^53 - 1. ',
+        'values. Int53 can represent values between -(2^53 - 1) and 2^53 - 1. ',
     serialize: coerceInt,
     parseValue: coerceInt,
     parseLiteral(ast) {
