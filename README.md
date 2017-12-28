@@ -1,6 +1,6 @@
 # GraphQL Int53 Scalar Type
 
-GraphQL Int53 is a scalar that matches the behavior of the `Int` type,
+GraphQL Int53 is a scalar that matches the behavior of the Int type,
 but with a range from `-(2**53 - 1)` to `2**53 - 1`. This corresponds to
 the safe integer range of an IEEE 754 double precision binary
 floating-point value.
@@ -35,15 +35,13 @@ While somewhat unconventional, the 53-bit integer is a "least common
 denominator" type that can easily be supported by all programming
 languages.
 
-## Getting Started
-
-Install `graphql-scalar-int53` using npm
+## Installation
 
 ```sh
 npm install --save graphql-scalar-int53
 ```
 
-Example:
+## Usage
 
 ```js
 import { graphql, buildSchema } from 'graphql';
