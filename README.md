@@ -19,5 +19,37 @@ npm install --save graphql-scalar-int53
 Example:
 
 ```js
+import { graphql, buildSchema } from 'graphql';
 import GraphQLInt53 from 'graphql-scalar-int53';
+
+const schema = buildSchema(`
+scalar Int53
+type Query {
+    output: Int53
+    inputVariable(value: Int53): Int53
+    inputLiteral(value: Int53): Int53
+}
+`);
+
+const query = `
+query ($value: Int53) {
+    output
+    inputVariable(value: $value)
+    inputLiteral(value: 9876504321)
+}
+`;
+
+const root = {
+    output: 9876504322,
+    inputVariable: ({value}) => value,
+    inputLiteral: ({value}) => value,
+}
+
+graphql(schema, query, root, null, {value: 98765043223}).then(console.log);
+
+// Outputs:
+// { data:
+//    { output: 9876504322,
+//      inputVariable: 98765043223,
+//      inputLiteral: 9876504321 } }
 ```
